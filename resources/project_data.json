@@ -1,0 +1,122 @@
+{
+  "data": {
+    "organization": {
+      "projectV2": {
+        "items": {
+          "nodes": [
+            {
+              "fieldValues": {
+                "nodes": [
+                  {},
+                  {},
+                  {
+                    "field": {
+                      "id": "PVTF_lADNJr_OAARQRM4AKF7F",
+                      "name": "Labels",
+                      "dataType": "LABELS"
+                    },
+                    "labels": {
+                      "edges": [
+                        {
+                          "node": {
+                            "name": "Active"
+                          }
+                        },
+                        {
+                          "node": {
+                            "name": "High Priority"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "text": "Issue #1",
+                    "field": {
+                      "name": "Title",
+                      "dataType": "TITLE",
+                      "id": "PVTF_lADNJr_OAARQRM4AKF7C"
+                    }
+                  },
+                  {
+                    "name": "Frontend",
+                    "field": {
+                      "id": "PVTSSF_lADNJr_OAARQRM4AKGCx",
+                      "name": "Category",
+                      "dataType": "SINGLE_SELECT"
+                    }
+                  },
+                  {
+                    "text": "ABC things need to happen",
+                    "field": {
+                      "name": "Notes",
+                      "dataType": "TEXT",
+                      "id": "PVTF_lADNJr_OAARQRM4AKGEg"
+                    }
+                  },
+                  {
+                    "date": "2022-12-30T00:00:00.000+00:00",
+                    "field": {
+                      "name": "Due 🗓",
+                      "dataType": "DATE",
+                      "id": "PVTF_lADNJr_OAARQRM4AKGEz"
+                    }
+                  },
+                  {
+                    "number": 333,
+                    "field": {
+                      "name": "Estimation",
+                      "dataType": "NUMBER",
+                      "id": "PVTF_lADNJr_OAARQRM4BjaqS"
+                    }
+                  }
+                ]
+              },
+              "id": "PVTI_lADNJr_OAARQRM4Aq05R"
+            },
+            {
+              "fieldValues": {
+                "nodes": [
+                  {
+                    "text": "Issue #2",
+                    "field": {
+                      "name": "Title",
+                      "dataType": "TITLE",
+                      "id": "PVTF_lADNJr_OAARQRM4AKF7C"
+                    }
+                  },
+                  {
+                    "name": "Category",
+                    "field": {
+                      "id": "PVTSSF_lADNJr_OAARQRM4AKGEE",
+                      "name": "Backend",
+                      "dataType": "SINGLE_SELECT"
+                    }
+                  },
+                  {
+                    "date": "2022-12-28T00:00:00.000+00:00",
+                    "field": {
+                      "name": "Due 🗓",
+                      "dataType": "DATE",
+                      "id": "PVTF_lADNJr_OAARQRM4AKGEz"
+                    }
+                  },
+                  {
+                    "text": "Comments on current status",
+                    "field": {
+                      "name": "Notes",
+                      "dataType": "TEXT",
+                      "id": "PVTF_lADNJr_OAARQRM4AKGEg"
+                    }
+                  }
+                ]
+              },
+              "id": "PVTI_lADNJr_OAARQRM4ArEt1"
+            }
+          ]
+        },
+        "id": "PVT_kwDNJr_OAARQRA"
+      }
+    }
+  }
+}

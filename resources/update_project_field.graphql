@@ -1,0 +1,16 @@
+mutation {
+    updateProjectV2ItemFieldValue(
+      input: {
+        projectId: "PROJECT_ID"
+        itemId: "ITEM_ID"
+        fieldId: "FIELD_ID"
+        value: { 
+          text: "Updated text"        
+        }
+      }
+    ) {
+      projectV2Item {
+        id
+      }
+    }
+  }

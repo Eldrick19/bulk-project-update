@@ -1,0 +1,92 @@
+{
+  organization(login: "ORGANIZATION") {
+    projectV2(number: PROJECT_NUMBER) {
+      items(last: 100) {
+        nodes {
+          fieldValues(last: 100) {
+            nodes {
+              ... on ProjectV2ItemFieldTextValue {
+                text
+                field {
+                  ... on ProjectV2Field {
+                    name
+                    dataType
+                    id
+                  }
+                }
+              }
+              ... on ProjectV2ItemFieldDateValue {
+                date
+                field {
+                  ... on ProjectV2Field {
+                    name
+                    dataType
+                    id
+                  }
+                }
+              }
+              ... on ProjectV2ItemFieldSingleSelectValue {
+                name
+                field {
+                  ... on ProjectV2SingleSelectField {
+                    id
+                    name
+                    dataType
+                  }
+                }
+              }
+              ... on ProjectV2ItemFieldNumberValue {
+                number
+                field {
+                  ... on ProjectV2Field {
+                    name
+                    dataType
+                    id
+                  }
+                }
+                id
+              }
+              ... on ProjectV2ItemFieldLabelValue {
+                __typename
+                field {
+                  ... on ProjectV2Field {
+                    id
+                    name
+                    dataType
+                  }
+                }
+                labels(first: 10) {
+                  edges {
+                    node {
+                      name
+                    }
+                  }
+                }
+              }
+              ... on ProjectV2ItemFieldPullRequestValue {
+                __typename
+                field {
+                  ... on ProjectV2Field {
+                    id
+                    name
+                    dataType
+                  }
+                }
+                pullRequests(first: 10) {
+                  edges {
+                    node {
+                      permalink
+                      number
+                    }
+                  }
+                }
+              }
+            }
+          }
+          id
+        }
+      }
+      id
+    }
+  }
+}

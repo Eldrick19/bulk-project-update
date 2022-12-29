@@ -1,0 +1,46 @@
+name: "Update Project Items"
+description: "Bulk update certain items, using filters, in the new GitHub Projects"
+author: "Eldrick Wega"
+branding:
+  icon: "shuffle"
+  color: "gray-dark"
+
+inputs:
+  token:
+    description: "The token used to authenticate to the GraphQL API"
+    default: ${{ github.token }}
+    required: true
+  
+  project-number:
+    description: "The project number"
+    required: true
+
+  update-field:
+    description: "The field to update"
+    required: true
+
+  update-value:
+    description: "The value to be used to update"
+    required: true
+
+  filter-field:
+    description: "The field to be used to filter"
+    required: false
+
+  conditional:
+    description: "The conditional to be used to filter"
+    default: "=="
+    required: false
+
+  filter-value:
+    description: "The value to be used to filter"
+    required: false
+
+  org:
+    description: "The organization that holds the project"
+    required: false
+
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
