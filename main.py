@@ -76,7 +76,7 @@ def main():
     # If the field type is a single select, we need to change the field type to singleSelectOptionId and get the option ID
     if update['field_type'] == 'single_select':
         update['field_type'] = 'singleSelectOptionId'
-        update['field_value'] = helpers.get_option_id(data, update_field, update_value)
+        update['field_value'] = '"' + helpers.get_option_id(data, update_field, update_value) + '"'
     # If the field type is not a number, we need to wrap the value in quotes
     elif update['field_type'] != 'number':
         update['field_value'] = '"' + update_value + '"'
