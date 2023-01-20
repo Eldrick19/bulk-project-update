@@ -8,6 +8,7 @@ FROM python:3-slim AS worker
 COPY --from=builder /app /app
 WORKDIR /app
 ENV PYTHONPATH /app
+RUN ["chmod", "+x", "/app/main.py"]
 CMD ["/app/main.py"]
 
 
