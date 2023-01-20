@@ -62,7 +62,7 @@ def get_option_id(data, input_field_name, option_name):
         for item in item_fields:
             if item and item['field'] and item['field']['name']:
                 if item['field']['name'] == input_field_name:
-                    for option in options:
+                    for option in item['field']['options']:
                         if option['name'] == option_name:
                             option_id = option['id']
                             break
