@@ -51,7 +51,23 @@ def get_filter_field_parameter(data, input_field_name, parameter):
                 if item['field']['name'] == input_field_name:
                     filter_field_paramater = item['field'][parameter]
                     break
+
     return filter_field_paramater
+
+# Function that gets the option id for a single select field given the input field name and option name
+def get_option_id(data, input_field_name, option_name):
+    option_id = ''
+    for node in data:
+        item_fields = node['fieldValues']['nodes']
+        for item in item_fields:
+            if item and item['field'] and item['field']['name']:
+                if item['field']['name'] == input_field_name:
+                    for option in item['labels']['edges']:
+                        if option['node']['name'] == option_name:
+                            option_id = option['node']['id']
+                            break
+    return option_id
+    
 
 # ---- QUERY FUNCTIONS ----
 
