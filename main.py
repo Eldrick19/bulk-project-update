@@ -38,7 +38,6 @@ def main():
     filter_field = os.environ.get("INPUT_FILTER-FIELD")
 
     conditional = os.environ.get("INPUT_CONDITIONAL")
-    print("Conditional: " + conditional)
 
     filter_value = os.environ.get("INPUT_FILTER-VALUE")
 
