@@ -32,7 +32,7 @@ Possible inputs:
 |update-field| **Required**. The field you want to update. This can be the Title, a Custom field, etc. Case-sensitive.|
 |update-value|**Required**. The new value you want to set. For example you can update a date fields to this new value.|
 |filter-field|**Optional**. This is the field we'll look at for each item in the project, and check if it meets the condition. If this field is left empty, we'll assume you're not filtering for specific items, and we'll update all items in the project.|
-|conditional|**Optional**. Compares the value of an item's field to the `filter-value` (e.g. <). See [supported field types](#suported-field-types) for more information on what's available|
+|conditional|**Optional**. Compares the value of an item's field to the `filter-value` (e.g. <). See [supported field types](#supported-field-types) for more information on what's available|
 |filter-value|**Optional**. The value you want to filter items on|
 |org|**Optional**. The organization/user that holds your project. By default we'll take the org/user that your Action is in (i.e. based on the repository from which it's called)|
 
@@ -51,10 +51,29 @@ To update items, you can use the following field types and their corresponding f
 - Text (including the Title)
 - Date
 - Number
+- Single Select
 
 <!-- NOTE: Labels and PRs. For these specific field types, you'll have to check the OAuth permissions for the organization you're connecting to. If restrictions are in place, data access to third parties will be limited, including this Action.
 
 This happens because the Labels and PRs are object that exist outside of the Project.   -->
+
+## More Examples
+
+````yaml
+- uses: eldrick19/bulk-project-update@main
+  with:
+    token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+    project-number: 123
+    org: my-org
+    update-field: Status
+    update-value: "Updated"
+    filter-field: Date
+    conditional: ==
+    filter-value: "2022-01-01"
+````
+
+^ Updates the "Status" field to "Updated" for all items with a "Date" field that is equal to "2022-01-01"
+
 
 ## Contributing
 
