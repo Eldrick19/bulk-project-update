@@ -16,6 +16,7 @@ def filter_items_to_update(data, filter_field, conditional, filter_value):
     # Otheriwse, filter the items
     else:
       print("Filtering items to update...")
+      print(conditional, filter_value)
       for node in data:
         item_fields = node['fieldValues']['nodes']
         for item in item_fields:
