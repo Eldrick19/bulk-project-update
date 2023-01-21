@@ -27,6 +27,7 @@ def filter_items_to_update(data, filter_field, conditional, filter_value):
                         case [('TEXT' | 'TITLE' ), ('==' | '!=')]:
                             exec("if item['text'] " + conditional + " '" + filter_value + "':\n\titem_ids.append(node['id'])")
                         case [('NUMBER'), ('==' | '!=' | '<' | '<=' | '>' | '>=')]:
+                            print(conditional, filter_value)
                             exec("if item['number'] " + conditional + " " + filter_value + ":\n\titem_ids.append(node['id'])")
                         case _:
                             print("Conditional not supported. Please check the action inputs.")

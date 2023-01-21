@@ -44,26 +44,26 @@ def main():
     # Get the data from the project
     print('Fetching project data using the API...')
     project_id, data = helpers.get_project_data(
-        org, 
-        project_number, 
+        org,
+        project_number,
         token
     )
-    
+
     # Apply filters (if they exist)
     item_ids, item_names = helpers.filter_items_to_update(
-        data, 
-        filter_field, 
-        conditional, 
+        data,
+        filter_field,
+        conditional,
         filter_value
     )
-    
+
     # Output to Actions Workflow
     # Commenting this out for now, in a future version we'll use this to output the items to update to the workflow or to a JSON file
     # name = 'items_to_update'
     # value = item_ids
     # with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
     #     print(f'{name}={value}', file=fh)
-    
+
     # Set up update data
     update = {
         "project_id": project_id,
@@ -86,7 +86,7 @@ def main():
     for item in item_ids:
         update['item_id'] = item
         helpers.update_item(update, token)
-    
+
     # Print success message
     if len(item_ids) == 0:
         print("No items to update! 🤷‍♂️")
