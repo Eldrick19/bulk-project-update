@@ -29,7 +29,6 @@ inputs:
 
   conditional:
     description: "The conditional to be used to filter"
-    default: "=="
     required: false
 
   filter-value:
