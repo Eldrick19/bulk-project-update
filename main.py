@@ -44,37 +44,41 @@ def main():
     # Get the data from the project
     print('Fetching project data using the API...')
     project_id, data = helpers.get_project_data(
-        org, 
-        project_number, 
+        org,
+        project_number,
         token
     )
-    
+
     # Apply filters (if they exist)
     item_ids, item_names = helpers.filter_items_to_update(
-        data, 
-        filter_field, 
-        conditional, 
+        data,
+        filter_field,
+        conditional,
         filter_value
     )
-    
+
     # Output to Actions Workflow
     # Commenting this out for now, in a future version we'll use this to output the items to update to the workflow or to a JSON file
     # name = 'items_to_update'
     # value = item_ids
     # with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
     #     print(f'{name}={value}', file=fh)
-    
+
     # Set up update data
     update = {
         "project_id": project_id,
         "field_id": helpers.get_filter_field_parameter(data, update_field, 'id'),
         "field_type": helpers.get_filter_field_parameter(data, update_field, 'dataType').lower(), # We need to convert to lower case for the GraphQL mutation, since the field type is all caps
+        "field_value": update_value
     }
 
-    # Set the update value. If the field type is a number, we won't need to wrap the value in quotes
-    if update['field_type'] == 'number':
-        update['field_value'] = update_value
-    else:
+    # Do some data cleanup.
+    # If the field type is a single select, we need to change the field type to singleSelectOptionId and get the option ID
+    if update['field_type'] == 'single_select':
+        update['field_type'] = 'singleSelectOptionId'
+        update['field_value'] = '"' + helpers.get_option_id(data, update_field, update_value) + '"'
+    # If the field type is not a number, we need to wrap the value in quotes
+    elif update['field_type'] != 'number':
         update['field_value'] = '"' + update_value + '"'
 
     # Loop through each item and update it
@@ -82,7 +86,7 @@ def main():
     for item in item_ids:
         update['item_id'] = item
         helpers.update_item(update, token)
-    
+
     # Print success message
     if len(item_ids) == 0:
         print("No items to update! 🤷‍♂️")
